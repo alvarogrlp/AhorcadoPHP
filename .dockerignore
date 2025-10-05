@@ -1,0 +1,8 @@
+.git
+.gitignore
+node_modules
+vendor
+composer.lock
+.idea
+.vscode
+.DS_Store
