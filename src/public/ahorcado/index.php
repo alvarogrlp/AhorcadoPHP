@@ -33,7 +33,7 @@ $renderer = new Renderer();
 $maskedWord = $game->getMaskedWord();
 $attemptsLeft = $game->getAttemptsLeft();
 $usedLetters = $game->getUsedLetters();
-$maskedWordDisplay = implode(' ', str_split($maskedWord));
+$maskedWordDisplay = implode(str_split($maskedWord));
 
 $message = '';
 $bodyState = '';
