@@ -11,7 +11,7 @@ use src\Storage;
 use src\WordProvider;
 
 $storage = new Storage();
-$provider = new WordProvider(__DIR__ . '/words.txt');
+$provider = new WordProvider(__DIR__ . 'data/words.txt');
 $state = $storage->get('game');
 
 if (is_array($state)) {
@@ -51,7 +51,7 @@ if ($game->isWon()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahorcado en PHP</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body class="<?php echo htmlspecialchars($bodyState, ENT_QUOTES, 'UTF-8'); ?>">
 <div class="background"></div>
