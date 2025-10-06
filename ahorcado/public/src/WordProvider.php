@@ -1,6 +1,6 @@
 <?php
 
-namespace Ahorcado;
+namespace src;
 
 use RuntimeException;
 

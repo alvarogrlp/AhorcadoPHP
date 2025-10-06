@@ -8,3 +8,5 @@ framework
 servidor
 cliente
 variable
+palabra
+ahorcado
