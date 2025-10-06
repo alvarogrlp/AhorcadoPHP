@@ -195,7 +195,7 @@ body::after {
 }
 
 .hangman__part--body {
-    top: 72px;
+    top: 68px;
     left: 50%;
     width: 14px;
     height: 96px;
@@ -215,16 +215,16 @@ body::after {
 }
 
 .hangman__part--arm-left {
-    top: 96px;
-    left: 67%;
+    top: 85px;
+    left: 68%;
     height: 70px;
     margin-left: -7px;
     transform: translateX(-110%) rotate(-32deg);
 }
 
 .hangman__part--arm-right {
-    top: 96px;
-    left: 33%;
+    top: 85px;
+    left: 32%;
     height: 70px;
     margin-left: -5px;
     transform: translateX(110%) rotate(32deg);
