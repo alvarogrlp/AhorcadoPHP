@@ -27,13 +27,8 @@ AhorcadoPHP es un juego sencillo que te invita a adivinar palabras letra a letra
 1. Instala Docker Desktop y asegúrate de que está en ejecución.
 2. Abre una terminal y entra en la carpeta del proyecto.
 3. Ejecuta `docker compose up --build` para arrancar el servidor.
-4. Cuando aparezca el mensaje de que el servidor está listo, visita `http://localhost:8080/ahorcado/index.php` en tu navegador.
+4. Cuando aparezca el mensaje de que el servidor está listo, visita `http://localhost:8080/` en tu navegador.
 5. Para detenerlo, vuelve a la terminal y presiona `Ctrl + C`.
-
-### Opción sin Docker
-1. Copia la carpeta `src/public/ahorcado` dentro de la carpeta pública de tu servidor local (por ejemplo `C:\xampp\htdocs\ahorcado`).
-2. Inicia el servidor web de tu herramienta (Apache en XAMPP, por ejemplo).
-3. Abre `http://localhost/ahorcado/index.php` y juega.
 
 ## Notas finales
 - Si quieres añadir nuevas palabras, edita el archivo `src/public/ahorcado/words.txt`, una palabra por línea.
