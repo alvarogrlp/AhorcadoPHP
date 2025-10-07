@@ -21,7 +21,7 @@ AhorcadoPHP es un juego sencillo que te invita a adivinar palabras letra a letra
 ## Evolución visual
 | Mockup inicial | Mockup final |
 | --------------- | ------------- |
-| <img src="src/public/recursos/Inicial.jpg" width="288"/> | <img src="src/public/recursos/Resultado.png" width="300"/> |
+| <img src="ahorcado/public/recursos/Inicial.jpg" width="288"/> | <img src="ahorcado/public/recursos/Resultado.png" width="300"/> |
 
 ## Guía rápida para ponerlo en marcha
 1. Instala Docker Desktop y asegúrate de que está en ejecución.
