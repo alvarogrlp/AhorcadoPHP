@@ -1,8 +1,9 @@
 <?php
+declare(strict_types=1);
 
-namespace src;
+namespace App\Presentation\Views;
 
-class Renderer
+final class Renderer
 {
     public function ascii(int $attemptsLeft): string
     {
