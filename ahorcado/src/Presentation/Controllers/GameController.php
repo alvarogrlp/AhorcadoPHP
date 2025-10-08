@@ -42,9 +42,21 @@ final class GameController
             exit;
         }
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['letra'])) {
-            $letter = (string) $_POST['letra'];
-            $this->gameService->guess($letter);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['letra'])) {
+                $letter = (string) $_POST['letra'];
+                $this->gameService->guess($letter);
+            } elseif (isset($_POST['attempts_action'])) {
+                $action = (string) $_POST['attempts_action'];
+                $delta = $action === 'inc' ? 1 : ($action === 'dec' ? -1 : 0);
+                if ($delta !== 0) {
+                    $this->gameService->adjustAttempts($delta);
+                } else {
+                    $this->gameService->persist();
+                }
+            } else {
+                $this->gameService->persist();
+            }
         } else {
             $this->gameService->persist();
         }
@@ -55,6 +67,7 @@ final class GameController
         $maskedWord = $game->maskedWord();
         $maskedWordDisplay = implode(' ', str_split($maskedWord));
         $attemptsLeft = $game->remainingAttempts();
+        $maxAttempts = $game->maxAttempts();
         $usedLetters = $game->guesses();
 
         [$message, $bodyState] = $this->resolveGameMessage($game);

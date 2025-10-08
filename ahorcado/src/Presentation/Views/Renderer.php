@@ -5,18 +5,31 @@ namespace App\Presentation\Views;
 
 final class Renderer
 {
-    public function ascii(int $attemptsLeft): string
+    public function ascii(int $attemptsLeft, int $maxAttempts): string
     {
-        $attemptsLeft = max(0, min(6, $attemptsLeft));
+        $maxAttempts = max(1, $maxAttempts);
+        $wrongGuesses = max(0, $maxAttempts - max(0, $attemptsLeft));
 
-        $partsVisibility = [
-            'head' => $attemptsLeft <= 5,
-            'body' => $attemptsLeft <= 4,
-            'arm-left' => $attemptsLeft <= 3,
-            'arm-right' => $attemptsLeft <= 2,
-            'leg-left' => $attemptsLeft <= 1,
-            'leg-right' => $attemptsLeft <= 0,
+        $partsOrder = [
+            'head',
+            'body',
+            'arm-left',
+            'arm-right',
+            'leg-left',
+            'leg-right',
         ];
+
+        $totalParts = count($partsOrder);
+        $ratio = $wrongGuesses / $maxAttempts; // 0..1
+        $partsToShow = (int) floor($ratio * $totalParts + 0.00001);
+        if ($wrongGuesses >= $maxAttempts) {
+            $partsToShow = $totalParts;
+        }
+
+        $partsVisibility = [];
+        foreach ($partsOrder as $idx => $name) {
+            $partsVisibility[$name] = $idx < $partsToShow;
+        }
 
         $partsMarkup = '';
         foreach ($partsVisibility as $part => $visible) {

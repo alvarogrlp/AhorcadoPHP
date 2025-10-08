@@ -3,9 +3,21 @@
         "current": {
             "id": "current",
             "word": "PATRON",
-            "maxAttempts": 7,
-            "guesses": [],
-            "status": "in_progress"
+            "maxAttempts": 8,
+            "guesses": [
+                "A",
+                "D",
+                "S",
+                "R",
+                "T",
+                "Y",
+                "E",
+                "X",
+                "C",
+                "V",
+                "B"
+            ],
+            "status": "lost"
         }
     }
 }

@@ -54,6 +54,36 @@ final class Game
         return $this->maxAttempts;
     }
 
+    public function hasStarted(): bool
+    {
+        return count($this->guesses) > 0;
+    }
+
+    public function canAdjustAttempts(): bool
+    {
+        return $this->status === self::STATUS_IN_PROGRESS && !$this->hasStarted();
+    }
+
+    public function setMaxAttempts(int $maxAttempts): void
+    {
+        if (!$this->canAdjustAttempts()) {
+            return;
+        }
+
+        $this->maxAttempts = max(1, $maxAttempts);
+        $this->refreshStatus();
+    }
+
+    public function adjustAttempts(int $delta): void
+    {
+        if (!$this->canAdjustAttempts()) {
+            return;
+        }
+
+        $this->maxAttempts = max(1, $this->maxAttempts + $delta);
+        $this->refreshStatus();
+    }
+
     /**
      * @return string[]
      */

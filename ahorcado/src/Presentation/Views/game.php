@@ -6,6 +6,7 @@
 /** @var string[] $usedLetters */
 /** @var string $message */
 /** @var string $bodyState */
+/** @var int $maxAttempts */
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -26,8 +27,23 @@
     <section class="game">
         <div class="game__visual">
             <div class="hangman-card">
-                <?php echo $renderer->ascii($attemptsLeft); ?>
-                <span class="attempts-badge">Intentos restantes: <strong><?php echo (int) $attemptsLeft; ?></strong></span>
+                <?php echo $renderer->ascii($attemptsLeft, $maxAttempts); ?>
+                <div class="attempts">
+                    <span class="attempts-badge<?php echo empty($usedLetters) && $message === '' ? ' attempts-badge--editable' : '';?>">
+                        Intentos: <strong><?php echo (int) $attemptsLeft; ?></strong>
+                        <small class="attempts-total">/ <?php echo (int) $maxAttempts; ?></small>
+                    </span>
+                    <?php if (empty($usedLetters) && $message === ''): ?>
+                        <form class="attempts-control" method="post">
+                            <button class="btn-icon" type="submit" name="attempts_action" value="dec" aria-label="Reducir intentos" title="Reducir intentos"<?php echo $maxAttempts <= 1 ? ' disabled' : '';?>>
+                                &minus;
+                            </button>
+                            <button class="btn-icon" type="submit" name="attempts_action" value="inc" aria-label="Aumentar intentos" title="Aumentar intentos">
+                                +
+                            </button>
+                        </form>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
         <div class="game__panel">

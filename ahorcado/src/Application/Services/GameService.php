@@ -53,6 +53,15 @@ final class GameService
         return $game;
     }
 
+    public function adjustAttempts(int $delta): Game
+    {
+        $game = $this->getCurrentGame();
+        $game->adjustAttempts($delta);
+        $this->gameRepository->save($game);
+
+        return $game;
+    }
+
     public function persist(): void
     {
         $game = $this->getCurrentGame();
