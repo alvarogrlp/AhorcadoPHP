@@ -69,8 +69,13 @@ final class GameController
         $attemptsLeft = $game->remainingAttempts();
         $maxAttempts = $game->maxAttempts();
         $usedLetters = $game->guesses();
+        $hasStarted = $game->hasStarted();
+        $canAdjustAttempts = $game->canAdjustAttempts();
 
         [$message, $bodyState] = $this->resolveGameMessage($game);
+        $difficulty = $this->resolveDifficultyState($attemptsLeft, $maxAttempts, $game->status());
+        $stateClass = $hasStarted ? 'game-active' : 'game-intro';
+        $bodyClasses = trim(implode(' ', array_filter([$bodyState, $difficulty['class'], $stateClass])));
 
         /** @var Game $game */
         require __DIR__ . '/../Views/game.php';
@@ -96,5 +101,58 @@ final class GameController
         }
 
         return ['', ''];
+    }
+
+    /**
+     * @return array{class: string, label: string, tone: string, progress: float}
+     */
+    private function resolveDifficultyState(int $attemptsLeft, int $maxAttempts, string $status): array
+    {
+        $maxAttempts = max(1, $maxAttempts);
+        $attemptsLeft = max(0, $attemptsLeft);
+
+        if ($status === Game::STATUS_WON) {
+            return [
+                'class' => 'difficulty-victory',
+                'label' => 'Victoria asegurada',
+                'tone' => 'success',
+                'progress' => 1.0,
+            ];
+        }
+
+        if ($status === Game::STATUS_LOST) {
+            return [
+                'class' => 'difficulty-failure',
+                'label' => 'Juego finalizado',
+                'tone' => 'danger',
+                'progress' => 0.0,
+            ];
+        }
+
+        $ratio = $attemptsLeft / $maxAttempts;
+        if ($ratio >= 0.66) {
+            return [
+                'class' => 'difficulty-safe',
+                'label' => 'Ritmo relajado',
+                'tone' => 'safe',
+                'progress' => $ratio,
+            ];
+        }
+
+        if ($ratio >= 0.33) {
+            return [
+                'class' => 'difficulty-tense',
+                'label' => 'Momento decisivo',
+                'tone' => 'warn',
+                'progress' => $ratio,
+            ];
+        }
+
+        return [
+            'class' => 'difficulty-critical',
+            'label' => 'Situacion critica',
+            'tone' => 'danger',
+            'progress' => $ratio,
+        ];
     }
 }

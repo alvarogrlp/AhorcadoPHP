@@ -2,22 +2,10 @@
     "games": {
         "current": {
             "id": "current",
-            "word": "PATRON",
-            "maxAttempts": 8,
-            "guesses": [
-                "A",
-                "D",
-                "S",
-                "R",
-                "T",
-                "Y",
-                "E",
-                "X",
-                "C",
-                "V",
-                "B"
-            ],
-            "status": "lost"
+            "word": "NAMESPACE",
+            "maxAttempts": 10,
+            "guesses": [],
+            "status": "in_progress"
         }
     }
 }

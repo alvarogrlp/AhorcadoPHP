@@ -8,3 +8,10 @@ services:
     volumes:
       - ./ahorcado:/var/www/html
       - ./php.ini:/usr/local/etc/php/conf.d/zz-custom.ini:ro
+    command:
+      - /bin/bash
+      - -lc
+      - |
+        mkdir -p /var/www/html/storage &&
+        chmod -R 777 /var/www/html/storage &&
+        exec apache2-foreground
