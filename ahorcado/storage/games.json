@@ -2,9 +2,11 @@
     "games": {
         "current": {
             "id": "current",
-            "word": "NAMESPACE",
-            "maxAttempts": 10,
-            "guesses": [],
+            "word": "PHP",
+            "maxAttempts": 7,
+            "guesses": [
+                "B"
+            ],
             "status": "in_progress"
         }
     }
