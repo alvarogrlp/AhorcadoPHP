@@ -46,7 +46,6 @@ final class Renderer
                     '<span class="structure structure--base"></span>' .
                     '<span class="structure structure--pole"></span>' .
                     '<span class="structure structure--beam"></span>' .
-                    '<span class="structure structure--brace"></span>' .
                     '<span class="structure structure--rope"></span>' .
                 '</div>' .
                 '<div class="hangman__figure" role="img" aria-label="Progreso del ahorcado">' .

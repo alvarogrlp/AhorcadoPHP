@@ -358,15 +358,6 @@
     height: 16px;
 }
 
-.structure--brace {
-    left: 22%;
-    top: 22%;
-    height: 70px;
-    width: 18px;
-    transform: skew(-30deg);
-    background: linear-gradient(180deg, rgba(14, 25, 49, 0.6), rgba(255, 255, 255, 0.1));
-}
-
 .structure--rope {
     top: 9%;
     height: 20%;

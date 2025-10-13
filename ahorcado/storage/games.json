@@ -2,11 +2,9 @@
     "games": {
         "current": {
             "id": "current",
-            "word": "PHP",
+            "word": "OBJETO",
             "maxAttempts": 7,
-            "guesses": [
-                "B"
-            ],
+            "guesses": [],
             "status": "in_progress"
         }
     }
