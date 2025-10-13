@@ -12,28 +12,27 @@ AhorcadoPHP es un juego sencillo que te invita a adivinar palabras letra a letra
 
 ## Cómo se vive la partida
 1. Entras en la página y ves los espacios vacíos de la palabra secreta.
-2. Eliges letras desde tu teclado o mediante los botones en pantalla.
+2. Eliges los intentos que quieres tener.
 3. Cuando aciertas, las letras aparecen en su sitio.
 4. Con cada fallo se dibuja una nueva parte del muñeco.
 5. Ganas si completas la palabra antes de que el dibujo quede terminado.
 6. Si se agotan los intentos, pulsa el botón de reinicio y prueba de nuevo.
 
 ## Evolución visual
-| Mockup inicial | Mockup final |
+| Mockup inicial | Mockup final V1 |
 | --------------- | ------------- |
-| <img src="ahorcado/public/recursos/Inicial.jpg" width="288"/> | <img src="ahorcado/public/recursos/Resultado.png" width="300"/> |
+| <img src="ahorcado/images/Inicial.jpg" width="288"/> | <img src="ahorcado/images/ResultadoV1.png" width="300"/> |
+
+| Mockup inicial V1 | Mockup final V2 |
+| --------------- | ------------- |
+| <img src="ahorcado/images/ResultadoV1.jpg" width="288"/> | <img src="ahorcado/images/ResultadoV2.png" width="300"/> |
 
 ## Guía rápida para ponerlo en marcha
 1. Instala Docker Desktop y asegúrate de que está en ejecución.
 2. Abre una terminal y entra en la carpeta del proyecto.
 3. Ejecuta `docker compose up --build` para arrancar el servidor.
-4. Cuando aparezca el mensaje de que el servidor está listo, visita `http://localhost:8080/ahorcado/index.php` en tu navegador.
+4. Cuando aparezca el mensaje de que el servidor está listo, visita `http://localhost:8080/` en tu navegador.
 5. Para detenerlo, vuelve a la terminal y presiona `Ctrl + C`.
-
-### Opción sin Docker
-1. Copia la carpeta `src/public/ahorcado` dentro de la carpeta pública de tu servidor local (por ejemplo `C:\xampp\htdocs\ahorcado`).
-2. Inicia el servidor web de tu herramienta (Apache en XAMPP, por ejemplo).
-3. Abre `http://localhost/ahorcado/index.php` y juega.
 
 ## Notas finales
 - Si quieres añadir nuevas palabras, edita el archivo `src/public/ahorcado/words.txt`, una palabra por línea.

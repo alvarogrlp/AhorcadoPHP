@@ -1,0 +1,11 @@
+{
+    "games": {
+        "current": {
+            "id": "current",
+            "word": "OBJETO",
+            "maxAttempts": 7,
+            "guesses": [],
+            "status": "in_progress"
+        }
+    }
+}

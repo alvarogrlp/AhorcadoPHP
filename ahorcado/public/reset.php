@@ -1,11 +1,5 @@
 <?php
+declare(strict_types=1);
 
-require_once __DIR__ . '/src/Storage.php';
-
-use Ahorcado\Storage;
-
-$storage = new Storage();
-$storage->reset();
-
-header('Location: index.php');
+header('Location: index.php?reset=1');
 exit;

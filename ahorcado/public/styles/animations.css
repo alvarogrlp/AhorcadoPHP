@@ -1,0 +1,159 @@
+body.game-intro {
+    animation: backdrop-pulse 18s ease-in-out infinite alternate;
+}
+
+body.game-intro .background--flare {
+    animation: flare-drift 28s ease-in-out infinite alternate;
+}
+
+body.game-intro .panel__glow {
+    animation: glow-pulse 6s ease-in-out infinite;
+}
+
+body.game-intro .chip--letter {
+    animation: chip-pop 320ms ease both;
+}
+
+body.game-intro .meter__fill {
+    animation: meter-fill 650ms ease-out;
+}
+
+body.game-intro .hangman__part.is-visible {
+    opacity: 1;
+    transform: scale(1);
+    animation: part-pop 550ms cubic-bezier(.21, .85, .32, 1.2);
+}
+
+body.game-intro .action-card {
+    animation: card-slide-up 420ms ease-out;
+}
+
+body.game-intro .result-banner {
+    animation: card-pulse 620ms ease;
+}
+
+.btn-icon {
+    transition: transform 180ms ease, box-shadow 180ms ease, background 220ms ease;
+}
+
+.btn-icon:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+.btn-icon:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.action-card__button,
+.reset-button {
+    transition: transform 180ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+
+.action-card__button:hover,
+.reset-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.action-card__button:active,
+.reset-button:active {
+    transform: translateY(0);
+}
+
+@keyframes flare-drift {
+    from {
+        transform: translateX(-2%) translateY(3%);
+    }
+    to {
+        transform: translateX(3%) translateY(-4%);
+    }
+}
+
+@keyframes backdrop-pulse {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(-8deg);
+    }
+}
+
+@keyframes glow-pulse {
+    0%,
+    100% {
+        opacity: 0.15;
+        transform: scale(0.98);
+    }
+    50% {
+        opacity: 0.32;
+        transform: scale(1.04);
+    }
+}
+
+@keyframes chip-pop {
+    0% {
+        opacity: 0;
+        transform: scale(0.65) translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes meter-fill {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(var(--progress, 1));
+    }
+}
+
+@keyframes part-pop {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    60% {
+        transform: scale(1.08);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes card-slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes card-pulse {
+    0% {
+        transform: scale(0.96);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
